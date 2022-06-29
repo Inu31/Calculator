@@ -1,0 +1,123 @@
+<style>
+    .container{
+        text-align:center;
+        margin-top: 23px;
+                     }       
+    table
+        {
+            margin:auto;
+        }
+    input
+        {
+            font-size:34px;
+            border:5px solid rgb(27, 41, 27);
+            border-radius:10px;
+            background-color: rgb(13, 233, 178,3);
+         }
+         button{
+            font-size:39px; 
+            background:blue;    
+            width:98px;
+            height:57px;
+            border-radius:7px;
+            border:3px solid rgb(10, 233, 10);
+            margin:5px;
+         }
+
+         button:hover{
+            box-shadow:0 0 10px 10px
+            rgb(13, 233, 178,3);
+            background:skyblue
+         }
+         .calculator{
+            display:inline-block;
+            border: #1F51FF solid 3px;
+            border-radius:20px;
+            padding:40px;
+            background:#FF10F0;
+            margin-left:400px;
+            margin-top:-20px;
+         }
+
+        .screen{
+            width:400px;;
+            height:256px;
+            border:3px solid black;
+        }
+     
+     .equal{
+        width:211px;
+        border-radius:7px;
+     }
+
+     h1{
+        margin-left:550px;
+        font-size:50px;
+        margin-top:50px;
+     }
+</style>
+<h1>Calculator</h1>
+        <div class="calculator">
+               <input type="text" placeholder="0"id="output-screen">
+               <div class="container">
+                <Div>
+                    <button onclick="Clear()">Cl </button>
+                    <button onclick="del()">DEL</button>
+                    <button onclick="display('%')">%</button>
+                    <button onclick="display('/')">/ </button>
+                </Div>
+                <Div>
+                    <button onclick="display('7')">7</button>
+                    <button onclick="display('8')">8</button>
+                    <button onclick="display('9')">9</button>
+                    <button onclick="display('*')">*</button>
+                </Div>
+                <Div>
+                    <button onclick="display('4')">4</button>
+                    <button onclick="display('5')">5</button>
+                    <button onclick="display('6')">6</button>
+                    <button onclick="display('-')">-</button>
+                </Div>
+                <Div>
+                    <button onclick="display('1')">1</button>
+                    <button onclick="display('2')">2</button>
+                    <button onclick="display('3')">3</button>
+                    <button onclick="display('+')">+</button>
+                </Div>
+                    <button onclick="display('.')">.</button>
+                    <button onclick="display('0')">0</button>
+                    <button onclick="Calculate('=')" onclick="empty()"class="equal ">=</button>
+                </div>
+          
+</div>
+<script>
+    let outputScreen=document.getElementById("output-screen")
+
+    function display(num){
+        outputScreen.value += num;
+    }
+
+    function Calculate(){
+        try{
+            outputScreen.value=eval(outputScreen.value);
+        }
+        catch(err){
+            alert("Invalid Pls try again :)")
+            outputScreen.value=""
+        }
+    }
+
+    function Clear(){
+        outputScreen.value=""
+    }
+
+    function del(){
+        outputScreen.value=outputScreen.value.slice(0,-1);
+    }
+     
+     function empty(){
+   if(outputScreen=""){
+    alert("Empty pls try again")
+   }
+}
+</script>
